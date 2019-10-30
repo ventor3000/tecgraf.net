@@ -1,0 +1,22 @@
+﻿Requests:
+File objects in clipboard
+
+
+
+Bugs:
+Querying RASTERSIZE/SIZE/DRAWSIZE on glcontrol triggers a redraw in windows 7
+SHRINK attribute in dialog dont work?
+Buttons drops TITLE when detach+map+insert/append
+Problems with caps/joins for fat lines and arcs in CD RGBImage driver
+Doc. bug in return value of cdCanvasVectorCharSize double<=>int
+SEPARATOR in label seems not to work
+Docs. says SHOWIMAGE is ignored if set before map in List. This is not true.
+CURSOR Support for label. Maybe on more controls.
+AppendItem in List before mapped should be supported
+Setting DEFAULTESC and DEFAULTENTER to null does not remove the button from dialog logic.
+
+Todos:
+System.Drawing image/resource loading in Iup.Image
+Implement all callback version for iup set callback
+Callbacks in code
+

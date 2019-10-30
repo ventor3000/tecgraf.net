@@ -1,0 +1,355 @@
+﻿module iup,NativeIUP
+###############IUP Main api
+IupOpen int,IntPtr argv,IntPtr argc
+IupClose void
+
+IupMainLoop int
+IupLoopStep int
+IupLoopStepWait int
+IupMainLoopLevel int
+IupFlush void
+IupExitLoop void
+
+IupUpdate void,IntPtr ih
+IupUpdateChildren void,IntPtr ih
+IupRedraw void,IntPtr ih,int children
+IupRefresh void,IntPtr ih
+IupRefreshChildren void,IntPtr ih
+
+IupMapFont IntPtr,string iupfont
+IupUnMapFont IntPtr,string driverfont
+IupHelp int,string url
+IupLoad IntPtr,string filename
+IupLoadBuffer IntPtr,string buffer
+
+IupVersion IntPtr
+IupVersionDate IntPtr
+IupVersionNumber int
+IupSetLanguage void,string lng
+IupGetLanguage IntPtr
+
+IupDestroy void,IntPtr ih
+IupDetach void,IntPtr child
+IupAppend IntPtr,IntPtr ih,IntPtr child
+IupInsert IntPtr,IntPtr ih,IntPtr ref_child,IntPtr child
+IupGetChild IntPtr,IntPtr ih,int pos
+IupGetChildPos int,IntPtr ih,IntPtr child
+IupGetChildCount int,IntPtr ih
+IupGetNextChild IntPtr,IntPtr ih,IntPtr child
+IupGetBrother IntPtr,IntPtr ih
+IupGetParent IntPtr,IntPtr ih
+IupGetDialog IntPtr,IntPtr ih
+IupGetDialogChild IntPtr,IntPtr ih,string name
+IupReparent int,IntPtr ih,IntPtr new_pareent,IntPtr ref_child
+
+IupPopup int,IntPtr ih,int x,int y
+IupShow int,IntPtr ih
+IupShowXY int,IntPtr ih,int x,int y
+IupHide int,IntPtr ih
+IupMap int,IntPtr ih
+IupUnmap void,IntPtr ih
+
+IupSetAttribute void,IntPtr ih,string name,IntPtr value
+IupStoreAttribute void,IntPtr ih,string name,string value
+IupSetAttributes IntPtr,IntPtr ih,string str
+IupGetAttribute IntPtr,IntPtr ih,string name
+IupGetAttributes IntPtr,IntPtr ih
+IupGetInt int,IntPtr ih,string name
+IupGetInt2 int,IntPtr ih,string name
+IupGetIntInt int,IntPtr ih,string name,out int i1,out int i2
+IupGetFloat float,IntPtr ih,string name
+#IupSetfAttribute void,IntPtr ih,string name,string format,... NOT USABLE IN .NET??
+IupResetAttribute void,IntPtr ih,string name
+IupGetAllAttributes int,IntPtr ih,ref IntPtr names,int n
+#IupSetAtt IntPtr,string handle_name,IntPtr ih,string name,... NOT USABLE IN .NET??
+IupSetAttributeId void,IntPtr ih,string name,int id,IntPtr value
+IupStoreAttributeId void,IntPtr ih,string name,int id,string value
+IupGetAttributeId IntPtr,IntPtr ih,string name,int id
+IupGetFloatId float,IntPtr ih,string name,int id
+IupGetIntId int,IntPtr ih,string name,int id
+#void  IupSetfAttributeId(Ihandle *ih, const char* name, int id, const char* format, ...); NOT USABLE FROM .Net
+
+IupSetAttributeId2 void,IntPtr ih,string name,int lin,int col,IntPtr value
+IupStoreAttributeId2 void,IntPtr ih,string name,int lin,int col,string value
+IupGetAttributeId2 IntPtr,IntPtr ih,string name,int lin,int col
+IupGetIntId2 int,IntPtr ih,string name,int lin,int col
+IupGetFloatId2 float,IntPtr ih,string name,int lin,int col
+#void  IupSetfAttributeId2(Ihandle* ih, const char* name, int lin, int col, const char* format, ...); NOT USABLE FROM.NET
+
+IupSetGlobal void,string name,IntPtr value
+IupStoreGlobal void,string name,string value
+IupGetGlobal IntPtr,string name
+
+IupSetFocus IntPtr,IntPtr ih
+IupGetFocus IntPtr
+IupPreviousField IntPtr,IntPtr ih
+IupNextField IntPtr,IntPtr ih
+
+IupGetCallback IntPtr,IntPtr ih,string name
+IupSetCallback IntPtr,IntPtr ih,string name,IntPtr func
+#Ihandle*  IupSetCallbacks(Ihandle* ih, const char *name, Icallback func, ...); //NOT USABLE FROM .NET
+
+IupGetFunction IntPtr,string name
+IupSetFunction IntPtr,string name,IntPtr func
+IupGetActionName IntPtr
+
+IupGetHandle IntPtr,string name
+IupSetHandle IntPtr,string name,IntPtr ih
+IupGetAllNames int,ref IntPtr names,int n
+IupGetAllDialogs int,ref IntPtr names,int n
+IupGetName IntPtr,IntPtr ih
+
+IupSetAttributeHandle void,IntPtr ih,string name,IntPtr ih_named
+IupGetAttributeHandle IntPtr,IntPtr ih,string name
+
+IupGetClassName IntPtr,IntPtr ih
+IupGetClassType IntPtr,IntPtr ih
+IupGetAllClasses int,ref IntPtr names, int n
+IupGetClassAttributes int,string classname,ref IntPtr names,int n
+IupGetClassCallbacks int,string classname,ref IntPtr names, int n
+IupSaveClassAttributes void,IntPtr ih
+IupCopyClassAttributes void,IntPtr src_ih,IntPtr dst_ih
+IupSetClassDefaultAttribute void,string classname,string name,string value
+
+IupCreate IntPtr,string classname
+IupCreatev IntPtr,string classname,ref IntPtr _params
+#Ihandle*  IupCreatep(const char *classname, void *first, ...); NOT USABLE FROM .NET
+
+
+########### Utils and misc
+IupSaveImageAsText int,IntPtr ih,string filename,string format,string name
+IupTextConvertLinColToPos void,IntPtr ih,int lin,int col,ref int pos
+IupTextConvertPosToLinCol void,IntPtr ih,int pos,ref int lin,ref int col
+IupConvertXYToPos int,IntPtr ih,int x,int y
+IupTreeSetUserId int,IntPtr ih,int id,IntPtr userid
+IupTreeGetUserId IntPtr,IntPtr ih,int id
+IupTreeGetId int,IntPtr ih,IntPtr userid
+IupTreeSetAttribute void,IntPtr ih,string name,int id,string value
+IupTreeStoreAttribute void,IntPtr ih,string name,int id,string value
+IupTreeGetAttribute IntPtr,IntPtr ih,string name,int id
+IupTreeGetInt int,IntPtr ih,string name,int id
+IupTreeGetFloat float,IntPtr ih,string name,int id
+#void  IupTreeSetfAttribute (Ihandle* ih, const char* name, int id, const char* format, ...); CANNOT BE USED IN .NET
+IupTreeSetAttributeHandle void,IntPtr ih,string a,int id,IntPtr ih_named
+
+
+################dialogs
+IupFileDlg IntPtr
+IupMessageDlg IntPtr
+IupColorDlg IntPtr
+IupFontDlg IntPtr
+
+IupGetFile int,StringBuilder sb
+IupMessage void,string title,string msg
+#void IupMessagef(const char *title, const char *format, ...); NOT USABLE FROM .NET
+IupAlarm int,string title,string msg,string b1,string b2,string b3
+#int  IupScanf(const char *format, ...); NOT USABLE FROM .NET
+IupListDialog int,int type, string title, int size, string[] list, int op, int max_col, int max_lin, int[] mark
+IupGetText int,string title,StringBuilder text
+IupGetColor int,int x,int y,ref byte r,ref byte g,ref byte b
+#todo: IupGetParam functions was ignored for now
+IupLayoutDialog IntPtr,IntPtr dialog
+
+
+##########Elements
+IupFill IntPtr
+IupRadio IntPtr,IntPtr child
+#IupVbox IntPtr,IntPtr child,...  Not usable in .NET
+IupVboxv IntPtr,IntPtr[] children
+#IupZbox IntPtr,IntPtr child,...  Not usable in .NET
+IupZboxv IntPtr,IntPtr[] children
+#IupHbox IntPtr,IntPtr child,...  Not usable in .NET
+IupHboxv IntPtr,IntPtr[] children
+#Ihandle*  IupNormalizer (Ihandle* ih_first, ...); NOT USAABLE IN .NET
+IupNormalizerv IntPtr,IntPtr[] ih_list
+#Ihandle*  IupCbox       (Ihandle* child, ...); NOT USABLE IN .NET
+IupCboxv IntPtr,IntPtr[] children
+IupSbox IntPtr,IntPtr child
+IupSplit IntPtr,IntPtr child1,IntPtr child2
+IupFrame IntPtr,IntPtr child
+IupImage IntPtr,int width, int height, byte[] pixmap
+IupImageRGB IntPtr,int width,int height,byte[] pixmap
+IupImageRGBA IntPtr,int width,int height,byte[] pixmap
+IupItem IntPtr,string title,string action
+IupSubmenu IntPtr,string title,IntPtr child
+IupSeparator IntPtr
+#Ihandle*  IupMenu       (Ihandle* child,...); NOT USABLE IN .NET
+IupMenuv IntPtr,IntPtr[] children
+IupButton IntPtr,string title,string action
+IupCanvas IntPtr,string action
+IupDialog IntPtr,IntPtr child
+IupUser IntPtr
+IupLabel IntPtr,string title
+IupList IntPtr,string action
+IupText IntPtr,string action
+IupMultiLine IntPtr,string action
+IupToggle IntPtr,string title,string action
+IupTimer IntPtr
+IupClipboard IntPtr
+IupProgressBar IntPtr
+IupVal IntPtr,string type
+#IupTabs IntPtr,IntPtr child,...
+IupTabsv IntPtr,IntPtr[] children
+IupTree IntPtr
+
+
+##############################################
+######IUP Image lib
+##############################################
+module iupimglib,NativeIUPImgLib
+IupImageLibOpen void
+
+###############################################
+####### IUP/CD
+###############################################
+module iupcd,NativeIUPCD
+cdContextIup IntPtr
+
+###############################################
+####### IUP/GL
+###############################################
+module iupgl,NativeIUPGL
+IupGLCanvas IntPtr,string action
+IupGLCanvasOpen void
+IupGLMakeCurrent void,IntPtr ih
+IupGLIsCurrent int,IntPtr ih
+IupGLSwapBuffers void,IntPtr ih
+IupGLPalette void,IntPtr ih, int index, float r, float g, float b
+IupGLUseFont void,IntPtr ih, int first, int count, int list_base
+IupGLWait void,int gl
+
+
+
+###############################################
+####### IUP/CONTROLS
+###############################################
+module iupcontrols,NativeIUPControls
+IupControlsOpen void
+IupCells IntPtr
+IupColorbar IntPtr
+IupColorBrowser IntPtr
+IupDial IntPtr,string orientation
+IupMatrix IntPtr,string action_cb
+#IupPPlot IntPtr
+#IupOleControl IntPtr
+#IupWebBrowser IntPtr
+
+###############################################
+####### CD/PDF
+###############################################
+module cdpdf,NativeCDPDF
+cdContextPDF IntPtr
+
+###############################################
+####### CD
+###############################################
+module cd,NativeCD
+cdCreateCanvasPtr=cdCreateCanvas IntPtr,IntPtr ctx,IntPtr data
+cdCreateCanvasStr=cdCreateCanvas IntPtr,IntPtr ctx,string data
+cdContextDXF IntPtr
+cdVersion IntPtr
+cdCanvasActivate int,IntPtr canvas
+
+###### LINES
+cdCanvasLine void,IntPtr canvas,int x1,int y1,int x2,int y2
+cdfCanvasLine void,IntPtr canvas,double x1,double y1,double x2,double y2
+wdCanvasLine void,IntPtr canvas,double x1,double y1,double x2,double y2
+
+cdCanvasArc void,IntPtr canvas, int xc, int yc, int w, int h, double angle1, double angle2
+cdfCanvasArc void,IntPtr canvas, double xc, double yc, double w, double h, double angle1, double angle2
+wdCanvasArc void,IntPtr canvas, double xc, double yc, double w, double h, double angle1, double angle2
+
+cdCanvasRect void,IntPtr canvas, int xmin, int xmax, int ymin, int ymax
+cdfCanvasRect void,IntPtr canvas, double xmin, double xmax, double ymin, double ymax
+wdCanvasRect void,IntPtr canvas, double xmin, double xmax, double ymin, double ymax
+
+###### FILLED_AREAS
+cdCanvasBox void,IntPtr canvas, int xmin, int xmax, int ymin, int ymax
+cdfCanvasBox void,IntPtr canvas, double xmin, double xmax, double ymin, double ymax
+wdCanvasBox void,IntPtr canvas, double xmin, double xmax, double ymin, double ymax
+
+###### COORDINATE_SYSTEM
+cdCanvasGetSize void,IntPtr canvas, out int width, out int height, out double width_mm, out double height_mm
+cdCanvasUpdateYAxis int,IntPtr canvas, out int y
+cdfCanvasUpdateYAxis double,IntPtr canvas, out double y
+cdCanvasInvertYAxis int,IntPtr canvas, int y
+cdfCanvasInvertYAxis double,IntPtr canvas, double y
+cdCanvasMM2Pixel void,IntPtr canvas, double mm_dx, double mm_dy, out int dx, out int dy
+cdCanvasPixel2MM void,IntPtr canvas, int dx, int dy, out double mm_dx, out double mm_dy
+cdfCanvasMM2Pixel void,IntPtr canvas, double mm_dx, double mm_dy, out double dx, out double dy
+cdfCanvasPixel2MM void,IntPtr canvas, double dx, double dy, out double mm_dx, out double mm_dy
+cdCanvasOrigin void,IntPtr canvas, int x, int y
+cdfCanvasOrigin void,IntPtr canvas, double x, double y
+cdCanvasGetOrigin void,IntPtr canvas, out int x, out int y
+cdfCanvasGetOrigin void,IntPtr canvas, out double x, out double y
+cdCanvasTransform void,IntPtr canvas, ref double matrix
+cdCanvasGetTransform IntPtr,IntPtr canvas
+cdCanvasTransformMultiply void,IntPtr canvas, ref double matrix
+cdCanvasTransformRotate void,IntPtr canvas, double angle
+cdCanvasTransformScale void,IntPtr canvas, double sx, double sy
+cdCanvasTransformTranslate void,IntPtr canvas, double dx, double dy
+cdCanvasTransformPoint void,IntPtr canvas, int x, int y, out int tx, out int ty
+cdfCanvasTransformPoint void,IntPtr canvas, double x, double y, out double tx, out double ty
+
+
+
+###### CONTROL
+cdCanvasSetAttribute void,IntPtr canvas, string name, string data
+#cdCanvasSetfAttribute void,IntPtr canvas, string name, const char* format, ...
+cdCanvasGetAttribute IntPtr,IntPtr canvas, string name
+
+
+
+###### VECTOR_TEXT
+cdCanvasVectorText void,IntPtr canvas, int x, int y, string s
+cdCanvasMultiLineVectorText void,IntPtr canvas, int x, int y, string s
+
+#char* cdCanvasVectorFont(cdCanvas* canvas, const char *filename);
+#void  cdCanvasVectorTextDirection(cdCanvas* canvas, int x1, int y1, int x2, int y2);
+#double* cdCanvasVectorTextTransform(cdCanvas* canvas, const double* matrix);
+# cdCanvasVectorTextSize void,IntPtr canvas, int size_x, int size_y, string s
+cdCanvasVectorCharSize int,IntPtr canvas, int size
+#void  cdCanvasVectorFontSize(cdCanvas* canvas, double size_x, double size_y);
+#void  cdCanvasGetVectorFontSize(cdCanvas* canvas, double *size_x, double *size_y);
+
+#void cdCanvasGetVectorTextSize(cdCanvas* canvas, const char* s, int *x, int *y);
+#void cdCanvasGetVectorTextBounds(cdCanvas* canvas, const char* s, int x, int y, int *rect);
+#void cdCanvasGetVectorTextBox(cdCanvas* canvas, int x, int y, const char *s, int *xmin, int *xmax, int *ymin, int *ymax);
+
+
+
+
+
+
+
+
+
+
+cdCanvasClear void,IntPtr canvas
+cdCanvasForeground int,IntPtr canvas,int color
+cdCanvasBackground int,IntPtr canvas,int color
+cdContextDBuffer IntPtr
+cdContextImageRGB IntPtr
+cdContextDBufferRGB IntPtr
+cdCanvasFlush void,IntPtr canvas
+cdKillCanvas void,IntPtr canvas
+
+cdCanvasLineWidth int,IntPtr canvas,int width
+wdCanvasLineWidth double,IntPtr canvas,double width_mm
+
+cdCanvasLineJoin int,IntPtr canvas,int style
+cdCanvasLineCap int,IntPtr canvas,int style
+
+cdCanvasBegin void,IntPtr canvas,int mode
+cdCanvasVertex void,IntPtr canvas,int x,int y
+cdfCanvasVertex void,IntPtr canvas,double x,double y
+wdCanvasVertex void,IntPtr canvas, double x, double y
+cdCanvasEnd void,IntPtr canvas
+cdCanvasPathSet void,IntPtr canvas, int action
+
+
+cdCanvasClip int,IntPtr canvas,int mode
+
+cdCanvasGetRegionBox void,IntPtr canvas, out int xmin, out int xmax, out int ymin, out int ymax
+wdCanvasGetRegionBox void,IntPtr canvas,out double xmin, out double xmax, out double ymin, out double ymax
+

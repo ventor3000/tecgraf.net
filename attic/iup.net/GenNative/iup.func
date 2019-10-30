@@ -1,0 +1,274 @@
+﻿module iup NativeIUP
+
+
+int IupOpen(IntPtr argv,IntPtr argc);
+void IupClose
+
+int       IupMainLoop 
+int       IupLoopStep  
+int       IupLoopStepWait
+int       IupMainLoopLevel
+void      IupFlush        
+void      IupExitLoop     
+
+int       IupRecordInput(UTF8 filename, int mode);
+int       IupPlayInput(UTF8 filename);
+
+void      IupUpdate        (IntPtr ih);
+void      IupUpdateChildren(IntPtr ih);
+void      IupRedraw        (IntPtr ih, int children);
+void      IupRefresh       (IntPtr ih);
+void      IupRefreshChildren(IntPtr ih);
+
+int       IupHelp          (UTF8 url);
+IntPtr     IupLoad          (UTF8 filename);
+IntPtr     IupLoadBuffer    (UTF8 buffer);
+
+IntPtr     IupVersion       (void);
+IntPtr     IupVersionDate   (void);
+int       IupVersionNumber (void);
+
+void      IupSetLanguage   (UTF8 lng);
+IntPtr     IupGetLanguage   (void);
+void      IupSetLanguageString(UTF8 name, IntPtr str);
+void      IupStoreLanguageString(UTF8 name, UTF8 str);
+IntPtr    IupGetLanguageString(UTF8 name);
+void      IupSetLanguagePack(IntPtr ih);
+
+void      IupDestroy      (IntPtr ih);
+void      IupDetach       (IntPtr child);
+IntPtr  IupAppend       (IntPtr ih, IntPtr child);
+IntPtr  IupInsert       (IntPtr ih, IntPtr ref_child, IntPtr child);
+IntPtr  IupGetChild     (IntPtr ih, int pos);
+int       IupGetChildPos  (IntPtr ih, IntPtr child);
+int       IupGetChildCount(IntPtr ih);
+IntPtr  IupGetNextChild (IntPtr ih, IntPtr child);
+IntPtr  IupGetBrother   (IntPtr ih);
+IntPtr  IupGetParent    (IntPtr ih);
+IntPtr  IupGetDialog    (IntPtr ih);
+IntPtr  IupGetDialogChild(IntPtr ih, UTF8 name);
+int       IupReparent     (IntPtr ih, IntPtr new_parent, IntPtr ref_child);
+
+int       IupPopup         (IntPtr ih, int x, int y);
+int       IupShow          (IntPtr ih);
+int       IupShowXY        (IntPtr ih, int x, int y);
+int       IupHide          (IntPtr ih);
+int       IupMap           (IntPtr ih);
+void      IupUnmap         (IntPtr ih);
+
+void      IupResetAttribute(IntPtr ih, string name);
+int       IupGetAllAttributes(IntPtr ih,ref IntPtr names, int n);
+IntPtr	IupSetAtt(UTF8 handle_name, IntPtr ih, UTF8 name, ...);
+IntPtr  IupSetAttributes (IntPtr ih, UTF8 str);
+IntPtr     IupGetAttributes (IntPtr ih);
+
+void      IupSetAttribute   (IntPtr ih, string name, IntPtr value);
+void      IupSetStrAttribute(IntPtr ih, string name, UTF8 value);
+void      IupSetStrf        (IntPtr ih, string name, UTF8 format, ...);
+void      IupSetInt         (IntPtr ih, string name, int value);
+void      IupSetFloat       (IntPtr ih, string name, float value);
+void      IupSetRGB         (IntPtr ih, string name, byte r, byte g, byte b);
+
+IntPtr     IupGetAttribute(IntPtr ih, string name);
+int       IupGetInt      (IntPtr ih, string name);
+int       IupGetInt2     (IntPtr ih, string name);
+int       IupGetIntInt   (IntPtr ih, string name, out int i1, out int i2);
+float     IupGetFloat    (IntPtr ih, string name);
+void      IupGetRGB      (IntPtr ih, string name, out byte r, out byte g, out byte b);
+
+void  IupSetAttributeId(IntPtr ih, string name, int id, IntPtr value);
+void  IupSetStrAttributeId(IntPtr ih, string name, int id, UTF8 value);
+void  IupSetStrfId(IntPtr ih, string name, int id, UTF8 format, ...);
+void  IupSetIntId(IntPtr ih, string name, int id, int value);
+void  IupSetFloatId(IntPtr ih, string name, int id, float value);
+void  IupSetRGBId(IntPtr ih, string name, int id, byte r, byte g, byte b);
+
+IntPtr IupGetAttributeId(IntPtr ih, string name, int id);
+int   IupGetIntId(IntPtr ih, string name, int id);
+float IupGetFloatId(IntPtr ih, string name, int id);
+void  IupGetRGBId(IntPtr ih, string name, int id, out byte r, out byte g, out byte b);
+
+void  IupSetAttributeId2(IntPtr ih, string name, int lin, int col,IntPtr value);
+void  IupSetStrAttributeId2(IntPtr ih, string name, int lin, int col, UTF8 value);
+void  IupSetStrfId2(IntPtr ih, string name, int lin, int col, UTF8 format, ...);
+void  IupSetIntId2(IntPtr ih, string name, int lin, int col, int value);
+void  IupSetFloatId2(IntPtr ih, string name, int lin, int col, float value);
+void  IupSetRGBId2(IntPtr ih, string name, int lin, int col, byte r, byte g, byte b);
+
+IntPtr IupGetAttributeId2(IntPtr ih, string name, int lin, int col);
+int   IupGetIntId2(IntPtr ih, string name, int lin, int col);
+float IupGetFloatId2(IntPtr ih, string name, int lin, int col);
+void  IupGetRGBId2(IntPtr ih, string name, int lin, int col, out byte r, out byte g, out byte b);
+
+void      IupSetGlobal  (string name, IntPtr value);
+void      IupSetStrGlobal(string name, UTF8 value);
+IntPtr    IupGetGlobal  (string name);
+
+IntPtr  IupSetFocus     (IntPtr ih);
+IntPtr  IupGetFocus     (void);
+IntPtr  IupPreviousField(IntPtr ih);  
+IntPtr  IupNextField    (IntPtr ih);
+
+IntPtr IupGetCallback (IntPtr ih, string name);
+IntPtr IupSetCallback (IntPtr ih, string name, IntPtr func);
+IntPtr  IupSetCallbacks(IntPtr ih, string name, IntPtr func, ...);
+
+Callback IupGetFunction(string name);
+Callback IupSetFunction(string name, IntPtr func);
+
+IntPtr  IupGetHandle    (string name);
+IntPtr  IupSetHandle    (string name, IntPtr ih);
+int       IupGetAllNames  (ref IntPtr names, int n);
+int       IupGetAllDialogs(ref IntPtr names, int n);
+IntPtr     IupGetName      (IntPtr ih);
+
+void      IupSetAttributeHandle(IntPtr ih, string name, IntPtr ih_named);
+IntPtr  IupGetAttributeHandle(IntPtr ih, string name);
+
+IntPtr     IupGetClassName(IntPtr ih);
+IntPtr     IupGetClassType(IntPtr ih);
+int       IupGetAllClasses(ref IntPtr names, int n);
+int       IupGetClassAttributes(string classname, ref IntPtr names, int n);
+int       IupGetClassCallbacks(string classname, ref IntPtr names, int n);
+void      IupSaveClassAttributes(IntPtr ih);
+void      IupCopyClassAttributes(IntPtr src_ih, IntPtr dst_ih);
+void      IupSetClassDefaultAttribute(string classname, string name, UTF8 value);
+int       IupClassMatch(IntPtr ih, string classname);
+
+IntPtr  IupCreate (string classname);
+IntPtr  IupCreatev(string classname, ref IntPtr param);
+IntPtr  IupCreatep(string classname, IntPtr first, ...);
+
+########################################################################
+#                        Elements                                      #
+########################################################################
+
+IntPtr  IupFill       (void);
+IntPtr  IupRadio      (IntPtr child);
+IntPtr  IupVbox       (IntPtr child, ...);
+IntPtr  IupVboxv      (IntPtr[] children);
+IntPtr  IupZbox       (IntPtr child, ...);
+IntPtr  IupZboxv      (IntPtr[] children);
+IntPtr  IupHbox       (IntPtr child,...);
+IntPtr  IupHboxv      (IntPtr[] children);
+
+IntPtr  IupNormalizer (IntPtr ih_first, ...);
+IntPtr  IupNormalizerv(IntPtr[] ih_list);
+
+IntPtr  IupCbox       (IntPtr child, ...);
+IntPtr  IupCboxv      (IntPtr[] children);
+IntPtr  IupSbox       (IntPtr child);
+IntPtr  IupSplit      (IntPtr child1, IntPtr child2);
+IntPtr  IupScrollBox  (IntPtr child);
+IntPtr  IupGridBox    (IntPtr child, ...);
+IntPtr  IupGridBoxv   (IntPtr[] children);
+IntPtr  IupExpander   (IntPtr child);
+IntPtr  IupDetachBox  (IntPtr child);
+IntPtr  IupBackgroundBox(IntPtr child);
+
+IntPtr  IupFrame      (IntPtr child);
+
+IntPtr  IupImage      (int width, int height, byte[] pixmap);
+IntPtr  IupImageRGB   (int width, int height, byte[] pixmap);
+IntPtr  IupImageRGBA  (int width, int height, byte[] pixmap);
+
+IntPtr  IupItem       (UTF8 title, string action);
+IntPtr  IupSubmenu    (UTF8 title, IntPtr child);
+IntPtr  IupSeparator  (void);
+IntPtr  IupMenu       (IntPtr child,...);
+IntPtr  IupMenuv      (IntPtr[] children);
+
+IntPtr  IupButton     (UTF8 title, string action);
+IntPtr  IupCanvas     (string action);
+IntPtr  IupDialog     (IntPtr child);
+IntPtr  IupUser       (void);
+IntPtr  IupLabel      (UTF8 title);
+IntPtr  IupList       (string action);
+IntPtr  IupText       (string action);
+IntPtr  IupMultiLine  (string action);
+IntPtr  IupToggle     (UTF8 title, string action);
+IntPtr  IupTimer      (void);
+IntPtr  IupClipboard  (void);
+IntPtr  IupProgressBar(void);
+IntPtr  IupVal        (string type);
+IntPtr  IupTabs       (IntPtr child, ...);
+IntPtr  IupTabsv      (IntPtr[] children);
+IntPtr  IupTree       (void);
+IntPtr  IupLink       (UTF8 url,UTF8 title);
+
+# Old controls, use SPIN attribute of IupText
+# IntPtr  IupSpin       (void);
+# IntPtr  IupSpinbox    (IntPtr child);
+
+
+########################################################################
+#                      Utilities                                       #
+########################################################################
+
+# IupImage utility
+int IupSaveImageAsText(IntPtr ih, UTF8 file_name, string format, string name);
+
+# IupText and IupScintilla utilities
+void  IupTextConvertLinColToPos(IntPtr ih, int lin, int col, out int pos);
+void  IupTextConvertPosToLinCol(IntPtr ih, int pos, out int lin,out int col);
+
+# IupText, IupList, IupTree, IupMatrix and IupScintilla utility
+int   IupConvertXYToPos(IntPtr ih, int x, int y);
+
+# OLD names, kept for backward compatibility, will never be removed.
+#void IupStoreGlobal(const char* name, const char* value);
+#void IupStoreAttribute(IntPtr ih, const char* name, const char* value);
+#void IupSetfAttribute(IntPtr ih, const char* name, const char* format, ...);
+#void IupStoreAttributeId(IntPtr ih, const char* name, int id, const char *value);
+#void IupSetfAttributeId(IntPtr ih, const char* name, int id, const char* f, ...);
+#void IupStoreAttributeId2(IntPtr ih, const char* name, int lin, int col, const char* value);
+#void IupSetfAttributeId2(IntPtr ih, const char* name, int lin, int col, const char* format, ...);
+
+# IupTree utilities
+int   IupTreeSetUserId(IntPtr ih, int id, IntPtr userid);
+IntPtr IupTreeGetUserId(IntPtr ih, int id);
+int   IupTreeGetId(IntPtr ih, IntPtr userid);
+void  IupTreeSetAttributeHandle(IntPtr ih, string name, int id, IntPtr ih_named);
+
+# DEPRECATED IupTree utilities, use Iup*AttributeId functions. It will be removed in a future version.
+#void  IupTreeSetAttribute  (IntPtr ih, const char* name, int id, const char* value);
+#void  IupTreeStoreAttribute(IntPtr ih, const char* name, int id, const char* value);
+#char* IupTreeGetAttribute  (IntPtr ih, const char* name, int id);
+#int   IupTreeGetInt        (IntPtr ih, const char* name, int id);
+#float IupTreeGetFloat      (IntPtr ih, const char* name, int id);
+#void  IupTreeSetfAttribute (IntPtr ih, const char* name, int id, const char* format, ...);
+
+# DEPRECATED callback management. It will be removed in a future version.
+# const char* IupGetActionName(void);
+
+# DEPRECATED font names. It will be removed in a future version.
+# char*     IupMapFont       (const char *iupfont);
+# char*     IupUnMapFont     (const char *driverfont);
+
+
+########################################################################
+#                      Pre-definided dialogs                           #
+########################################################################
+
+IntPtr IupFileDlg(void);
+IntPtr IupMessageDlg(void);
+IntPtr IupColorDlg(void);
+IntPtr IupFontDlg(void);
+IntPtr IupProgressDlg(void);
+
+int  IupGetFile(StringBuilder arq);
+void IupMessage(UTF8 title, UTF8 msg);
+void IupMessagef(UTF8 title, UTF8 format, ...);
+int  IupAlarm(UTF8 title, UTF8 msg, UTF8 b1, UTF8 b2, UTF8 b3);
+int  IupScanf(UTF8 format, ...);
+int  IupListDialog(int type, UTF8 title, int size, UTF8[] list, int op, int max_col, int max_lin, int[] marks);
+int  IupGetText(UTF8 title, IntPtr text);
+int  IupGetColor(int x, int y, ref byte r,ref byte g,ref byte b);
+
+int IupGetParam(UTF8 title, IntPtr action, IntPtr user_data, UTF8 format,...);
+int IupGetParamv(UTF8 title, IntPtr action, IntPtr user_data, UTF8 format, int param_count, int param_extra, IntPtr param_data);
+
+IntPtr IupLayoutDialog(IntPtr dialog);
+IntPtr IupElementPropertiesDialog(IntPtr elem);
+
+

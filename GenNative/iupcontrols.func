@@ -1,0 +1,11 @@
+﻿module iupcontrols NativeIUPControls2
+
+void IupControlsOpen
+IntPtr IupCells
+IntPtr IupColorbar
+IntPtr IupColorBrowser
+IntPtr IupDial(string orientation);
+IntPtr IupMatrix(string action_cb);
+#IupPPlot IntPtr
+#IupOleControl IntPtr
+#IupWebBrowser IntPtr

@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tecgraf", "Tecgraf.csproj", "{D2A5B1CC-71E7-4F30-AB11-E210B5B0BFB8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApplication1", "..\Test\WindowsFormsApplication1\WindowsFormsApplication1.csproj", "{08E5DB8D-DA5B-4859-9BAE-438970D66627}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenNative", "..\GenNative\GenNative.csproj", "{C2DA9E89-4785-4AF6-B857-11D497F24CA4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D2A5B1CC-71E7-4F30-AB11-E210B5B0BFB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2A5B1CC-71E7-4F30-AB11-E210B5B0BFB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2A5B1CC-71E7-4F30-AB11-E210B5B0BFB8}.Debug|x86.ActiveCfg = Debug|x86
+		{D2A5B1CC-71E7-4F30-AB11-E210B5B0BFB8}.Debug|x86.Build.0 = Debug|x86
+		{D2A5B1CC-71E7-4F30-AB11-E210B5B0BFB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2A5B1CC-71E7-4F30-AB11-E210B5B0BFB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2A5B1CC-71E7-4F30-AB11-E210B5B0BFB8}.Release|x86.ActiveCfg = Release|x86
+		{D2A5B1CC-71E7-4F30-AB11-E210B5B0BFB8}.Release|x86.Build.0 = Release|x86
+		{08E5DB8D-DA5B-4859-9BAE-438970D66627}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08E5DB8D-DA5B-4859-9BAE-438970D66627}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08E5DB8D-DA5B-4859-9BAE-438970D66627}.Debug|x86.ActiveCfg = Debug|x86
+		{08E5DB8D-DA5B-4859-9BAE-438970D66627}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08E5DB8D-DA5B-4859-9BAE-438970D66627}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08E5DB8D-DA5B-4859-9BAE-438970D66627}.Release|x86.ActiveCfg = Release|Any CPU
+		{C2DA9E89-4785-4AF6-B857-11D497F24CA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2DA9E89-4785-4AF6-B857-11D497F24CA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2DA9E89-4785-4AF6-B857-11D497F24CA4}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C2DA9E89-4785-4AF6-B857-11D497F24CA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2DA9E89-4785-4AF6-B857-11D497F24CA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2DA9E89-4785-4AF6-B857-11D497F24CA4}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = ..\Test\WindowsFormsApplication1\WindowsFormsApplication1.csproj
+	EndGlobalSection
+EndGlobal
